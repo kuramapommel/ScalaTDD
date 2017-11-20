@@ -1,6 +1,12 @@
 package com.github.kuramapommel.ScalaTDD.money
 
-case class Dollar( amount: Integer ) {
+class Dollar( var amount: Integer ) {
 
-  def times( multiplier: Integer ) : Unit = {}
+  amount = 5 * 2
+
+  def times( multiplier: Integer ) = {}
+}
+
+object Dollar {
+  def apply( amount: Integer ) = new Dollar( amount )
 }
