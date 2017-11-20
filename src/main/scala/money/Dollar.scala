@@ -2,9 +2,7 @@ package com.github.kuramapommel.ScalaTDD.money
 
 class Dollar( var amount: Integer ) {
 
-  amount = 5 * 2
-
-  def times( multiplier: Integer ) = {}
+  def times( multiplier: Integer ) = amount = amount * multiplier
 }
 
 object Dollar {
