@@ -14,5 +14,4 @@ class MoneyTest extends FlatSpec with Matchers {
     product = five.times( 3 )
     product.amount should be( 15 )
   }
-
 }
