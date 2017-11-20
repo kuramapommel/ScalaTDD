@@ -14,4 +14,9 @@ class MoneyTest extends FlatSpec with Matchers {
     product = five.times( 3 )
     product.amount should be( 15 )
   }
+
+  "Dollar" should "equality" in {
+    assert( Dollar( 5 ) == Dollar( 5 ) )
+    assert( Dollar( 5 ) != Dollar( 6 ) )
+  }
 }
