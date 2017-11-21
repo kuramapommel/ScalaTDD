@@ -12,7 +12,6 @@ final case class Dollar( amount: Integer ) extends Money {
 
 }
 
-
 final case class Franc( amount: Integer ) extends Money {
 
   def times( multiplier: Integer ) = Franc( amount * multiplier )
