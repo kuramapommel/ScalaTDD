@@ -8,11 +8,8 @@ class MoneyTest extends FlatSpec with Matchers {
 
   "Dollar" should "multiplication" in {
     val five = Dollar( 5 )
-    var product = five.times( 2 )
-    product.amount should be( 10 )
-
-    product = five.times( 3 )
-    product.amount should be( 15 )
+    assert( Dollar( 10 ) == five.times( 2 ) )
+    assert( Dollar( 15 ) == five.times( 3 ) )
   }
 
   "Dollar" should "equality" in {
