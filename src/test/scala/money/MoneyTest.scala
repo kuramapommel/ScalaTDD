@@ -16,4 +16,10 @@ class MoneyTest extends FlatSpec with Matchers {
     assert( Dollar( 5 ) == Dollar( 5 ) )
     assert( Dollar( 5 ) != Dollar( 6 ) )
   }
+
+  "Franc" should "multiplication" in {
+    val five = Franc( 5 )
+    assert( Franc( 10 ) == five.times( 2 ) )
+    assert( Franc( 15 ) == five.times( 3 ) )
+  }
 }
