@@ -7,22 +7,31 @@ class MoneyTest extends FlatSpec with Matchers {
   import com.github.kuramapommel.scalatdd.money._
 
   "Dollar" should "multiplication" in {
-    val five = Dollar( 5 )
-    assert( Dollar( 10 ) == five.times( 2 ) )
-    assert( Dollar( 15 ) == five.times( 3 ) )
+    val money = Money.dollar
+    val five = money( 5 )
+
+    assert( money( 10 ) == five.times( 2 ) )
+    assert( money( 15 ) == five.times( 3 ) )
   }
 
   "Money" should "equality" in {
-    assert( Dollar( 5 ) == Dollar( 5 ) )
-    assert( Dollar( 5 ) != Dollar( 6 ) )
-    assert( Franc( 5 ) == Franc( 5 ) )
-    assert( Franc( 5 ) != Franc( 6 ) )
-    assert( Franc( 5 ) != Dollar( 5 ) )
+    val dollar = Money.dollar
+    val franc = Money.franc
+
+    assert( dollar( 5 ) == dollar( 5 ) )
+    assert( dollar( 5 ) != dollar( 6 ) )
+
+    assert( franc( 5 ) == franc( 5 ) )
+    assert( franc( 5 ) != franc( 6 ) )
+
+    assert( franc( 5 ) != dollar( 5 ) )
   }
 
   "Franc" should "multiplication" in {
-    val five = Franc( 5 )
-    assert( Franc( 10 ) == five.times( 2 ) )
-    assert( Franc( 15 ) == five.times( 3 ) )
+    val money = Money.franc
+    val five = money( 5 )
+
+    assert( money( 10 ) == five.times( 2 ) )
+    assert( money( 15 ) == five.times( 3 ) )
   }
 }
