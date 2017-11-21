@@ -1,10 +1,10 @@
-package com.github.kuramapommel.ScalaTDD.test.money
+package com.github.kuramapommel.scalatdd.test.money
 
 import org.scalatest._
 
 class MoneyTest extends FlatSpec with Matchers {
 
-  import com.github.kuramapommel.ScalaTDD.money._
+  import com.github.kuramapommel.scalatdd.money._
 
   "Dollar" should "multiplication" in {
     val five = Dollar( 5 )

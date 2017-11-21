@@ -1,4 +1,4 @@
-package com.github.kuramapommel.ScalaTDD.money
+package com.github.kuramapommel.scalatdd.money
 
 final case class Dollar( amount: Integer ) {
 
