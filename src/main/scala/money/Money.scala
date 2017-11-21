@@ -1,6 +1,6 @@
 package com.github.kuramapommel.scalatdd.money
 
-trait Money {
+sealed trait Money {
 
   protected val amount : Integer
 
@@ -9,5 +9,12 @@ trait Money {
 final case class Dollar( amount: Integer ) extends Money {
 
   def times( multiplier: Integer ) = Dollar( amount * multiplier )
+
+}
+
+
+final case class Franc( amount: Integer ) extends Money {
+
+  def times( multiplier: Integer ) = Franc( amount * multiplier )
 
 }
