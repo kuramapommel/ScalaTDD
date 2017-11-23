@@ -2,27 +2,14 @@ package com.github.kuramapommel.scalatdd.money
 
 final object Money {
 
-  val dollar = ( amount: Int ) => new Dollar( amount, "USD" )
+  val dollar = ( amount: Int ) => Money( amount, "USD" )
 
-  val franc = ( amount: Int ) => new Franc( amount, "CHF" )
-
-}
-
-sealed class Money( val amount: Int, val currency: String ) {
-
-  def times( multiplier: Int ) = new Money( amount * multiplier, currency )
-
-  override def equals( obj: Any ) = obj match {
-    case money: Money => amount == money.amount && currency == money.currency
-    case _ => false
-  }
+  val franc = ( amount: Int ) => Money( amount, "CHF" )
 
 }
 
-final class Dollar( amount: Int, currency: String ) extends Money( amount, currency ) {
+final case class Money( amount: Int, currency: String ) {
 
-}
-
-final class Franc( amount: Int, currency: String ) extends Money( amount, currency ) {
+  val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
 
 }
