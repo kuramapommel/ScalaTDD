@@ -12,6 +12,8 @@ final case class Money( amount: Int, currency: String ) extends Expression {
 
   val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
 
-  def +( money: Money ): Expression = Money( amount + money.amount, currency )
+  def +( money: Money ) = Sum( this, money )
+
+  override def reduce( to: String ) = this
 
 }
