@@ -14,6 +14,9 @@ final case class Money( amount: Int, currency: String ) extends Expression {
 
   def +( money: Money ) = Sum( this, money )
 
-  override def reduce( to: String ) = this
+  override def reduce( to: String ) = {
+    val rate = if ( currency == "CHF" && to == "USD" ) 2 else 1
+    Money( amount / rate, to )
+  }
 
 }
