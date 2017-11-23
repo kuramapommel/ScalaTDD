@@ -34,4 +34,9 @@ class MoneyTest extends FlatSpec with Matchers {
     assert( money( 10 ) == five.times( 2 ) )
     assert( money( 15 ) == five.times( 3 ) )
   }
+
+  "Money" should "have currency" in {
+    assert( "USD" == Money.dollar( 1 ).currency )
+    assert( "CHF" == Money.franc( 1 ).currency )
+  }
 }
