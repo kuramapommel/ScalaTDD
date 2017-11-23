@@ -8,8 +8,10 @@ final object Money {
 
 }
 
-final case class Money( amount: Int, currency: String ) {
+final case class Money( amount: Int, currency: String ) extends Expression {
 
   val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
+
+  def +( money: Money ): Expression = Money( amount + money.amount, currency )
 
 }
