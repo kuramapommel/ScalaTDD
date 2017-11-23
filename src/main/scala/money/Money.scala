@@ -14,4 +14,6 @@ final case class Money( amount: Int, currency: String ) extends Expression {
 
   def +( money: Money ): Expression = Sum( this, money )
 
+  override def reduce( to: String ) = this
+
 }
