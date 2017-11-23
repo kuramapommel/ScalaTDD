@@ -10,7 +10,7 @@ final object Money {
 
 sealed class Money( val amount: Int, val currency: String ) {
 
-  def times( multiplier: Int ): Money = null
+  def times( multiplier: Int ) = new Money( amount * multiplier, currency )
 
   override def equals( obj: Any ) = obj match {
     case money: Money => amount == money.amount && currency == money.currency
@@ -21,12 +21,8 @@ sealed class Money( val amount: Int, val currency: String ) {
 
 final class Dollar( amount: Int, currency: String ) extends Money( amount, currency ) {
 
-  override def times( multiplier: Int ) = new Dollar( amount * multiplier, currency )
-
 }
 
 final class Franc( amount: Int, currency: String ) extends Money( amount, currency ) {
-
-  override def times( multiplier: Int ) = new Franc( amount * multiplier, currency )
 
 }
