@@ -2,28 +2,26 @@ package com.github.kuramapommel.scalatdd.money
 
 final object Money {
 
-  val dollar = Dollar( _ )
+  val dollar = ( amount: Int ) => Dollar( amount, "USD" )
 
-  val franc = Franc( _ )
+  val franc = ( amount: Int ) => Franc( amount, "CHF" )
 
 }
 
-sealed trait Money {
-
-  val amount : Int
+sealed abstract class Money( amount: Int, currency: String ) {
 
   def times( multiplier: Int ) : Money
 
 }
 
-final case class Dollar( amount: Int ) extends Money {
+final case class Dollar( amount: Int, currency: String ) extends Money( amount, currency ) {
 
-  override def times( multiplier: Int ) = Dollar( amount * multiplier )
+  override def times( multiplier: Int ) = Money.dollar( amount * multiplier )
 
 }
 
-final case class Franc( amount: Int ) extends Money {
+final case class Franc( amount: Int, currency: String ) extends Money( amount, currency ) {
 
-  override def times( multiplier: Int ) = Franc( amount * multiplier )
+  override def times( multiplier: Int ) = Money.franc( amount * multiplier )
 
 }
