@@ -36,4 +36,12 @@ class MoneyTest extends FlatSpec with Matchers {
     assert( "USD" == Money.dollar( 1 ).currency )
     assert( "CHF" == Money.franc( 1 ).currency )
   }
+
+  "Money" should "have simple addition" in {
+    val five = Money.dollar( 5 )
+    val sum: Expression = five + five
+    val bank = new Bank()
+    val reduced = bank.reduce( sum, "USD" )
+    assert( Money.dollar( 10 ) == reduced )
+  }
 }
