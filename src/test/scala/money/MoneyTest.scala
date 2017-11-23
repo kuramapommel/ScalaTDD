@@ -44,4 +44,13 @@ class MoneyTest extends FlatSpec with Matchers {
     val reduced = bank.reduce( sum, "USD" )
     assert( Money.dollar( 10 ) == reduced )
   }
+
+  "Plus" should "return sum" in {
+    val five = Money.dollar( 5 )
+    val result = five + five
+    val sum = result.asInstanceOf[Sum]
+
+    assert( sum.augend == five )
+    assert( sum.addend == five )
+  }
 }
