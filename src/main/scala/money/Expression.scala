@@ -2,6 +2,6 @@ package com.github.kuramapommel.scalatdd.money
 
 trait Expression {
 
-  def reduce( to: String ): Money
+  def reduce( bank: Bank, to: String ): Money
 
 }
