@@ -39,4 +39,8 @@ class MoneyTest extends FlatSpec with Matchers {
     assert( "USD" == Money.dollar( 1 ).currency )
     assert( "CHF" == Money.franc( 1 ).currency )
   }
+
+  "Different Class" should "equality" in {
+    assert( new Money( 10, "CHF" ) == new Franc( 10, "CHF" ) )
+  }
 }
