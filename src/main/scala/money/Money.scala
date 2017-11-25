@@ -12,7 +12,7 @@ final case class Money( amount: Int, currency: String ) extends Expression {
 
   val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
 
-  def +( money: Money ) = Sum( this, money )
+  override def +( addend: Expression ) = Sum( this, addend )
 
   override def reduce( bank: Bank, to: String ) = {
     val rate = bank.rate( currency, to )
