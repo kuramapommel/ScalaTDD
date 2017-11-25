@@ -10,7 +10,7 @@ final object Money {
 
 final case class Money( amount: Int, currency: String ) extends Expression {
 
-  val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
+  override val times = ( multiplier: Int ) => Money( amount * multiplier, currency )
 
   override def +( addend: Expression ) = Sum( this, addend )
 
