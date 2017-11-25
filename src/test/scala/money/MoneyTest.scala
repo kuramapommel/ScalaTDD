@@ -93,6 +93,17 @@ class MoneyTest extends FlatSpec with Matchers {
     val result = bank.reduce( sum, "USD" )
 
     assert( result == Money.dollar( 15 ) )
+  }
+
+  "Sum" should "have times" in {
+    val fiveBucks = Money.dollar( 5 )
+    val tenFrancs = Money.franc( 10 )
+    val bank = new Bank
+    bank.addRate( "CHF", "USD", 2 )
+    val sum = Sum( fiveBucks, tenFrancs ).times( 2 )
+    val result = bank.reduce( sum, "USD" )
+
+    assert( result == Money.dollar( 20 ) )
 
   }
 }
