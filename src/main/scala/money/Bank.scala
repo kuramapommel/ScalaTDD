@@ -2,7 +2,7 @@ package com.github.kuramapommel.scalatdd.money
 
 import scala.collection.mutable.HashMap
 
-class Bank {
+final class Bank {
 
   private[ this ] var rates = new HashMap[ Pair, Int ]
 

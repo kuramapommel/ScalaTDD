@@ -73,4 +73,14 @@ class MoneyTest extends FlatSpec with Matchers {
   "Rate" should "have identity" in {
     assert( ( new Bank ).rate( "USD", "USD" ) == 1 )
   }
+
+  "Different currency" should "have mixed addition" in {
+    val fiveBucks = Money.dollar( 5 )
+    val tenFrancs = Money.franc( 10 )
+    val bank = new Bank
+    bank.addRate( "CHF", "USD", 2 )
+    val result = bank.reduce( fiveBucks + tenFrancs, "USD" )
+
+    assert( result == Money.dollar( 10 ) )
+  }
 }
