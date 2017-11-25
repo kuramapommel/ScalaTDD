@@ -105,9 +105,4 @@ class MoneyTest extends FlatSpec with Matchers {
 
     assert( result == Money.dollar( 20 ) )
   }
-
-  "Plus same currency" should "return money" in {
-    val sum = Money.dollar( 1 ) + Money.dollar( 1 )
-    assert( sum.isInstanceOf[ Money ] )
-  }
 }
