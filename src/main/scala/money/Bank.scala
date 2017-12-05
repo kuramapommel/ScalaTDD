@@ -11,4 +11,5 @@ final class Bank {
   def reduce( source: Expression, to: String ) = source.reduce( this, to )
 
   def addRate( from: String, to: String, rate: Int ) = rates += ( Pair( from, to ) -> rate )
+
 }
